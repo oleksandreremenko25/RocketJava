@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">RocketJava</string>
+    <string name="title">Варіанти бюджетів використання обох типів ракет:</string>
+    <string name="textAnswerFirstPart">Було використано </string>
+    <string name="textAnswerSecondPart"> ракет. Було витрачено </string>
+    <string name="textAnswerThirddPart"> мільйонів $</string>
+</resources>
