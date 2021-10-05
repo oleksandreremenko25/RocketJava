@@ -2,24 +2,16 @@ package com.example.rocketjava;
 
 public class U2 extends Rocket {
 
-    public boolean launch(Item item) {
-        int chanceOfLaunchExplosion = 4 * (item.weight / liftingWeight);
-
-        if(chanceOfLaunchExplosion > 0) {
-            return true;
-        } else {
-            return false;
-        }
+    @Override
+    public boolean launch() {
+        int chanceOfLaunchExplosion = 5 * ((currentWeight - emptyWeight) / (maxWeight - emptyWeight));
+        return chanceOfLaunchExplosion < Math.random() * 7;
     }
 
-    public boolean land(Item item) {
-        int chanceOfLaunchExplosion = 8 * (item.weight / liftingWeight);
-
-        if(chanceOfLaunchExplosion > 0) {
-            return true;
-        } else {
-            return false;
-        }
+    @Override
+    public boolean land() {
+        int chanceOfLaunchExplosion = 8 * ((currentWeight - emptyWeight) / (maxWeight - emptyWeight));
+        return chanceOfLaunchExplosion < Math.random() * 14;
     }
 
     U2() {

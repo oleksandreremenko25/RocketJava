@@ -1,9 +1,9 @@
 package com.example.rocketjava;
 
 public interface SpaceShip {
-    public boolean launch();
-    public boolean land();
-    public boolean canCarry(Item item);
-    public int carry(Item item);
+    boolean launch();
+    boolean land();
+    boolean canCarry(Item item);
+    int carry(Item item);
 }
 

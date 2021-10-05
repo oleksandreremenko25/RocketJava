@@ -30,43 +30,42 @@ public class Simulation {
         return arrayListItem;
     }
 
-    public ArrayList CalculationForLoadU1_2(String typeRocket, ArrayList<Item> itemArrayList) {
+    public ArrayList<Rocket> loadU1(ArrayList<Item> itemArrayList) throws FileNotFoundException {
         ArrayList arrayListFullU1 = new ArrayList();
 
-        int x = 0;
         while (itemArrayList.size() != 0) {
-            if (typeRocket == "U1") {
-                U1 fullU1 = new U1();
-                for (int y = 0; y < itemArrayList.size(); y++) {
-                    if (fullU1.canCarry(itemArrayList.get(y))) {
-                        fullU1.carry(itemArrayList.get(y));
-                        itemArrayList.remove(y);
-                    }
-                }
+            U1 fullU1 = new U1();
 
-                arrayListFullU1.add(fullU1);
-            } else {
-                U2 fullU2 = new U2();
-                for (int y = 0; y < itemArrayList.size(); y++) {
-                    if (fullU2.canCarry(itemArrayList.get(y))) {
-                        fullU2.carry(itemArrayList.get(y));
-                        itemArrayList.remove(y);
-                    }
+            for (int y = 0; y < itemArrayList.size(); y++) {
+                if (fullU1.canCarry(itemArrayList.get(y))) {
+                    fullU1.carry(itemArrayList.get(y));
+                    itemArrayList.remove(y);
                 }
-
-                arrayListFullU1.add(fullU2);
             }
-            x++;
+
+            arrayListFullU1.add(fullU1);
+
         }
         return arrayListFullU1;
     }
 
-    public ArrayList<Rocket> loadU1(ArrayList<Item> itemArrayList) throws FileNotFoundException {
-        return CalculationForLoadU1_2("U1", itemArrayList);
-    }
-
     public ArrayList<Rocket> loadU2(ArrayList<Item> itemArrayList) throws FileNotFoundException {
-        return CalculationForLoadU1_2("U2", itemArrayList);
+        ArrayList arrayListFullU1 = new ArrayList();
+
+        while (itemArrayList.size() != 0) {
+            U2 fullU2 = new U2();
+
+            for (int y = 0; y < itemArrayList.size(); y++) {
+                if (fullU2.canCarry(itemArrayList.get(y))) {
+                    fullU2.carry(itemArrayList.get(y));
+                    itemArrayList.remove(y);
+                }
+            }
+
+            arrayListFullU1.add(fullU2);
+
+        }
+        return arrayListFullU1;
     }
 
     public String runSimulation(Context contextThis, String typeRocket, ArrayList<Rocket> arrayListFull_1, ArrayList<Rocket> arrayListFull_2) throws FileNotFoundException {
@@ -76,9 +75,10 @@ public class Simulation {
 
         int z = 0;
         while (z < arrayListFull_1.size()) {
-            if (arrayListFull_1.get(z).land() || arrayListFull_1.get(z).launch()) {
+            if (arrayListFull_1.get(z).land() && arrayListFull_1.get(z).launch()) {
                 z++;
             }
+            numberAllRocket++;
         }
 
         int costOneRocket;
@@ -94,7 +94,7 @@ public class Simulation {
         String textAnswerSecondPart = contextThis.getString(R.string.textAnswerSecondPart);
         String textAnswerThirddPart = contextThis.getString(R.string.textAnswerThirddPart);
 
-        return textAnswerFirstPart + " " + z + " " + textAnswerSecondPart + " " + z * costOneRocket + " " + textAnswerThirddPart;
+        return textAnswerFirstPart + " " + numberAllRocket + " " + textAnswerSecondPart + " " + numberAllRocket * costOneRocket + " " + textAnswerThirddPart;
     }
 }
 
