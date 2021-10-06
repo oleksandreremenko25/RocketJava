@@ -31,7 +31,7 @@ public class Simulation {
     }
 
     public ArrayList<Rocket> loadU1(ArrayList<Item> itemArrayList) throws FileNotFoundException {
-        ArrayList arrayListFullU1 = new ArrayList();
+        ArrayList<Rocket> arrayListFullU1 = new ArrayList<Rocket>();
 
         while (itemArrayList.size() != 0) {
             U1 fullU1 = new U1();
@@ -50,7 +50,7 @@ public class Simulation {
     }
 
     public ArrayList<Rocket> loadU2(ArrayList<Item> itemArrayList) throws FileNotFoundException {
-        ArrayList arrayListFullU1 = new ArrayList();
+        ArrayList<Rocket> arrayListFullU1 = new ArrayList<Rocket>();
 
         while (itemArrayList.size() != 0) {
             U2 fullU2 = new U2();
