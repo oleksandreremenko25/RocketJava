@@ -35,13 +35,13 @@ public class MainActivity extends AppCompatActivity {
         ArrayList<Rocket> listFullloadU1 = simulation.loadU1(itemPhase1);
         ArrayList<Rocket> listFullloadU2 = simulation.loadU1(itemPhase2);
 
-        firstBudgetOption.setText(simulation.runSimulation(this, "U1", listFullloadU1, listFullloadU2));
+        firstBudgetOption.setText(simulation.runSimulation(this, listFullloadU1, listFullloadU2));
 
         ArrayList<Item> itemPhase3 = simulation2.loadItems(this,"phase-1.txt");
         ArrayList<Item> itemPhase4 = simulation2.loadItems(this,"phase-2.txt");
         ArrayList<Rocket> listFullloadU3 = simulation2.loadU2(itemPhase3);
         ArrayList<Rocket> listFullloadU4 = simulation2.loadU2(itemPhase4);
 
-        secondBudgetOption.setText(simulation.runSimulation(this, "U2", listFullloadU3, listFullloadU4));
+        secondBudgetOption.setText(simulation.runSimulation(this, listFullloadU3, listFullloadU4));
     }
 }
