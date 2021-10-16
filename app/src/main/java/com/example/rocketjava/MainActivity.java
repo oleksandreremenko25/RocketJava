@@ -23,13 +23,13 @@ public class MainActivity extends AppCompatActivity {
         secondBudgetOption = (TextView)findViewById(R.id.secondBudgetOption);
 
         try {
-            startProgram(firstBudgetOption);
+            startProgram();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public void startProgram(View view) throws Exception {
+    public void startProgram() throws Exception {
         ArrayList<Item> itemPhase1 = simulation.loadItems(this,"phase-1.txt");
         ArrayList<Item> itemPhase2 = simulation.loadItems(this,"phase-2.txt");
         ArrayList<Rocket> listFullloadU1 = simulation.loadU1(itemPhase1);
